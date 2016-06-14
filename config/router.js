@@ -5,10 +5,7 @@ const view = require('../controller/controller');
 var API = new router();
 
 API.get('/', view.index)
-   .get('/list', view.list)
-   .get('/list/:id', view.list)
-   .get('/detail/', view.detail)
-   .get('/create/', view.create);
-   .get('/getDetail/', view.getDetail);
+   .get('/getQQNewsDetail/', view.detail)
+   .post('/getQQNewsDetail/', view.detail);
 
 exports.RULE  = API.middleware();
