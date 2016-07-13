@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lcxfs1991/steamer-koa.git"
+    "url": "git+https://github.com/SteamerTeam/steamer-koa.git"
   },
   "keywords": [
     "koa",
@@ -16,12 +16,12 @@
     "kit",
     "boilerplate"
   ],
-  "author": "lcxfs1991",
+  "author": "SteamerTeam",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lcxfs1991/steamer-koa/issues"
+    "url": "https://github.com/SteamerTeam/steamer-koa/issues"
   },
-  "homepage": "https://github.com/lcxfs1991/steamer-koa#readme",
+  "homepage": "https://github.com/SteamerTeam/steamer-koa#readme",
   "dependencies": {
     "html-to-text": "^2.1.0",
     "htmlparser": "^1.7.7",
