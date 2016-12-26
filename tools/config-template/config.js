@@ -1,5 +1,6 @@
 module.exports = {
 	host: "{{host}}",
+	port: "{{port}}",
 	email: {
 		from: "xxx@qq.com",
 		password: "",

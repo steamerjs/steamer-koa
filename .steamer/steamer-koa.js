@@ -13,6 +13,12 @@ module.exports = {
         },
         {
             type: 'input',
+            name: 'port',
+            message: 'server port(3001)',
+            default: "3001",
+        },
+        {
+            type: 'input',
             name: 'mongo-server',
             message: 'mongo server(127.0.0.1)',
             default: "127.0.0.1",
