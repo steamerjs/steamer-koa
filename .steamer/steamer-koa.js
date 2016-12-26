@@ -20,7 +20,8 @@ module.exports = {
         {
             type: 'input',
             name: 'mongo-port',
-            message: 'mongo server port(27017)'
+            message: 'mongo server port(27017)',
+            default: "27017",
         },
         {
             type: 'input',
