@@ -2,7 +2,7 @@
   "name": "steamer-koa",
   "version": "1.0.0",
   "description": "koa starter kit",
-  "main": "index.js",
+  "main": "./.steamer/steamer-koa.js",
   "scripts": {
     "start": "node-dev ./src/app.js",
     "build": "",
