@@ -1,0 +1,135 @@
+{% extends './layout.html' %}
+
+{% block content %}
+    <header class="ui-header ui-header-positive ui-border-b">
+        <i class="ui-icon-return" onclick="history.back()"></i>
+        <h1>SteamerAccount-统一账户</h1><button id="logout" class="ui-btn">登出</button>
+    </header>
+    <!-- <footer class="ui-footer ui-footer-btn">
+        <ul class="ui-tiled ui-border-t">
+            <li data-href="index.html" class="ui-border-r"><div>基础样式</div></li>
+            <li data-href="ui.html" class="ui-border-r"><div>UI组件</div></li>
+            <li data-href="js.html"><div>JS插件</div></li>
+        </ul>
+    </footer> -->
+    <section class="ui-container">
+        <section id="tab">
+            <div class="demo-item">
+                <div class="demo-block">
+                    <div class="ui-tab">
+                        <ul class="ui-tab-nav ui-border-b">
+                            <li class="current">个人信息</li>
+                            <li>修改密码</li>
+                            <!-- <li></li> -->
+                        </ul>
+                        <ul class="ui-tab-content" style="width:300%">
+                            <li>
+                                <ul class="ui-list ui-list-pure ui-border-tb">
+                                    <li class="ui-border-t">
+                                        <p><span>邮箱</span></p>
+                                        <h4>{{data.userName}}</h4>
+                                    </li>
+                                    <li class="ui-border-t">
+                                        <p><span>权限</span></p>
+                                        <h4>{{data.privilege}}</h4>
+                                    </li>
+                                    <li class="ui-border-t">
+                                        <p><span>注册时间</span></p>
+                                        <h4>{{data.regTime}}</h4>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="ui-form ui-border-t">
+                                    <form>
+                                        <div class="ui-form-item ui-form-item-pure ui-border-b">
+                                            <input type="password" placeholder="新密码" id="password">
+                                            <a href="#" class="ui-icon-close"></a>
+                                        </div>
+                                        <div class="ui-form-item ui-form-item-pure ui-border-b">
+                                            <input type="password" placeholder="重复密码" id="passwordre">
+                                            <a href="#" class="ui-icon-close"></a>
+                                        </div>
+                                    </form>
+                                    <div class="ui-btn-wrap">
+                                        <button class="ui-btn-lg" id="submit">
+                                            修改
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- <li>内容3</li> -->
+                        </ul>
+                    </div>
+                </div>
+                <script class="demo-script">
+                
+                </script>
+            </div>
+        </section>
+    </section>
+    <script src="/common/lib/zepto.min.js"></script>
+    <script src="/common/js/frozen.js"></script>
+    <script>
+        (function (){
+            var tab = new fz.Scroll('.ui-tab', {
+                role: 'tab',
+            });
+            /* 滑动开始前 */
+            // tab.on('beforeScrollStart', function(fromIndex, toIndex) {
+            //     console.log(fromIndex,toIndex);// from 为当前页，to 为下一页
+            // })
+        })();
+
+        $('#submit').on('tap', function(e) {
+            e.preventDefault();
+
+            var password = $("#password").val(),
+                passwordre = $("#passwordre").val();
+
+            console.log(password, passwordre);
+
+            $.ajax({
+                type: "POST",
+                url: "/api/changepwd",
+                data: {
+                    password: password,
+                    passwordre: passwordre,
+                },
+                success: function(data) {
+                    if (data.ret) {
+                        var msg = data.msg[0];
+
+                        $.tips({
+                            content: JSON.stringify(msg)
+                        });
+                    }
+                    else {
+                        $.tips({
+                            content: "修改成功"
+                        });
+                    }
+                },
+                error: function(err) {
+                    $.tips({
+                        content: "网络错误，请稍等"
+                    });
+                }
+            });
+        });
+
+        $('#logout').on('tap', function(e) {
+            window.location.href = "./logout";
+        });
+
+        $('.ui-icon-close').on('tap', function(e) {
+            var inputs = $(this).siblings(),
+                input = inputs[0] || null;
+
+            if (input) {
+                $(input).val("");
+            }
+
+        });
+    </script>
+{% endblock %}

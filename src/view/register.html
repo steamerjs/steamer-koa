@@ -1,0 +1,79 @@
+{% extends './layout.html' %}
+
+{% block content %}
+	<header class="ui-header ui-header-positive ui-border-b">
+        <i class="ui-icon-return" onclick="history.back()"></i>
+        <h1>SteamerAccount-统一账户</h1><button class="ui-btn" id="login">登陆</button>
+    </header>
+    <section class="ui-container">
+        <div class="ui-form ui-border-t">
+            <form>
+                <div class="ui-form-item ui-form-item-pure ui-border-b">
+                    <input type="text" placeholder="邮箱" id="username">
+                    <a href="#" class="ui-icon-close"></a>
+                </div>
+                <div class="ui-form-item ui-form-item-pure ui-border-b">
+                    <input type="password" placeholder="密码" id="password">
+                    <a href="#" class="ui-icon-close"></a>
+                </div>
+            </form>
+            <div class="ui-btn-wrap">
+                <button class="ui-btn-lg" id="submit">
+                    注册
+                </button>
+            </div>
+        </div>
+    </section>
+	<script src="/common/lib/zepto.min.js"></script>
+    <script src="/common/js/frozen.js"></script>
+    <script>
+        $('#submit').on('tap', function(e) {
+            e.preventDefault();
+
+            var username = $("#username").val(),
+                password = $("#password").val();
+
+            console.log(username, password);
+
+            $.ajax({
+                type: "POST",
+                url: "/api/register",
+                data: {
+                    username: username,
+                    password: password,
+                },
+                success: function(data) {
+                    if (data.ret) {
+                        var msg = data.msg[0];
+
+                        $.tips({
+                            content: JSON.stringify(msg)
+                        });
+                    }
+                    else {
+                        window.location.href = "./profile";
+                    }
+                },
+                error: function(err) {
+                    $.tips({
+                        content: "网络错误，请稍等"
+                    });
+                }
+            });
+        });
+
+        $('#login').on('tap', function(e) {
+            window.location.href = "./login";
+        });
+
+        $('.ui-icon-close').on('tap', function(e) {
+            var inputs = $(this).siblings(),
+                input = inputs[0] || null;
+
+            if (input) {
+                $(input).val("");
+            }
+
+        });
+    </script>
+{% endblock %}

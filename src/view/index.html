@@ -1,0 +1,44 @@
+{% extends './layout.html' %}
+
+{% block content %}
+    <style>
+        .logo {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .logo > img {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+	<header class="ui-header ui-header-positive ui-border-b">
+        <h1>SteamerAccount-统一账户</h1>
+    </header>
+    <section class="ui-container">
+        <div class="logo">
+            <img src="/common/img/steamer.png" />
+        </div>
+        <div class="ui-btn-wrap">
+            <button id="login" class="ui-btn-lg ui-btn-primary">
+                登陆
+            </button>
+        </div>
+        <div class="ui-btn-wrap">
+            <button id="register" class="ui-btn-lg ui-btn-danger">
+                注册
+            </button>
+        </div>
+    </section>
+	<script src="/common/lib/zepto.min.js"></script>
+    <script src="/common/js/frozen.js"></script>
+    <script>
+        $('#login').on('click', function(e) {
+            window.location.href = "/login";
+        });
+
+        $('#register').on('click', function(e) {
+            window.location.href = "/register";
+        });
+    </script>
+{% endblock %}
