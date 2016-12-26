@@ -1,6 +1,19 @@
 # Koa Starter Kit
 
-## 安装
+关于更多安装详情，请参考：
+[steamer-plugin-kit](https://github.com/SteamerTeam/steamer-plugin-kit)
+
+## 简介
+此分支是koa快速启动分支
+
+## 配置介绍
+目前主要的构建配置都放在tools文件夹下，它们的作用分别如下：
+* `config.js`           自身的一些配置，例如域名、服务器端口等
+* `config-template`     `config.js`的模板，用于steamer安装时候进行替换的模板
+
+配合`package.json`的`scripts`命令，可以方便用简单命令启动开发及生产环境。
+
+## 安装starter kit
 
 ```
 npm i -g steamerjs
@@ -21,15 +34,22 @@ steamer kit -u
 
 ```
 
-关于更多安装详情，请参考：
-[steamer-plugin-kit](https://github.com/SteamerTeam/steamer-plugin-kit)
+## 安装mongo
+```
+// 
 
-## 简介
-此分支是koa快速启动分支
+// 启动mongo
+mongod
+```
 
-## 配置介绍
-目前主要的构建配置都放在tools文件夹下，它们的作用分别如下：
-* `config.js`           自身的一些配置，例如域名、服务器端口等
-* `config-template`     `config.js`的模板，用于steamer安装时候进行替换的模板
+## 初始化数据
+```
+npm run init
+```
 
-配合`package.json`的`scripts`命令，可以方便用简单命令启动开发及生产环境。
+## 启动服务器
+```
+npm start
+```
+
+## 用代理进行访问
