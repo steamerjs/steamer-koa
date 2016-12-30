@@ -34,21 +34,23 @@ steamer kit -u
 
 ```
 
-## Install mongoDB
+## 安装mongoDB
 ```
-// install mongoDB
-You can find how to install mongodDB online
+// 安装mongoDB
+网上有不少教程
 
-// start mongo
+// 启动mongodb
 mongod
 ```
 
-## init data
+## 初始化数据
 ```
 npm run init
 ```
 
-## start dev server
+## 启动服务器
 ```
 npm start
 ```
+
+## 用代理进行访问
