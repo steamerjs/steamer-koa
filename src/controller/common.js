@@ -1,5 +1,5 @@
-const utils = require('../utils/utils'),
-	  config = require('../../tools/config'),
+const utils = require('../common/utils'),
+	  config = require('../../config/project'),
 	  Sessions = require('../model/session').Sessions,
 	  Email = require('nodemailer'),
 	  smtpPool = require('nodemailer-smtp-pool');

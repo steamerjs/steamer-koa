@@ -1,7 +1,7 @@
 "use strict";
 
 const Users = require('../model/user').Users,
-	  utils = require('../utils/utils'),
+	  utils = require('../common/utils'),
 	  common = require('./common');
 
 var requestSync = require('../common/requestSync');

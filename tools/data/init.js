@@ -1,3 +1,6 @@
+/**
+ * mongodb 数据初始化
+ */
 "use strict";
 
 var co = require('co');

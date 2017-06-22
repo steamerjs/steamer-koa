@@ -12,7 +12,7 @@ const validate = require('koa-validate');
 const fs = require('fs');
 const path = require('path');
 const app = koa();
-const config = require("../tools/config");
+const config = require("../config/project");
 
 // koa-validte调用
 validate(app);

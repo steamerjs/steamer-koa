@@ -1,6 +1,8 @@
+// validate middleware
+
+'use strict';
+
 const Users = require('../model/user').Users;
-
-
 
 exports.register = function *(next) {
 	this.checkBody('username').notEmpty("邮件不能为空").isEmail("邮件格式不对");

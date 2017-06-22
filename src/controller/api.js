@@ -2,7 +2,7 @@
 
 const Users = require('../model/user').Users,
 	  common = require('./common'),
-	  utils = require('../utils/utils');
+	  utils = require('../common/utils');
 
 
 const ERR_COMMON = 1,

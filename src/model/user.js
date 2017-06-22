@@ -2,7 +2,7 @@
 
 const db = require('../config/mongo'),
 	wrap = require('co-monk'),
-	utils = require('../utils/utils');
+	utils = require('../common/utils');
 
 var Users = wrap(db.get('users'));
 

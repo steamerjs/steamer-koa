@@ -2,7 +2,7 @@ const router = require('koa-router'),
 	  View = require('../controller/page'),
 	  Api = require('../controller/api'),
 	  Common = require('../controller/common'),
-	  Validate = require('../middleware/validate');
+	  Validate = require('../common/validate');
 
 //路由处理，首页指定用index函数处理，但需要先经过validate函数校验
 var page = new router();
