@@ -1,4 +1,4 @@
-const db = require('../config/mongo'),
+const db = require('../db/mongo'),
 	wrap = require('co-monk'),
 	utils = require('../common/utils');
 

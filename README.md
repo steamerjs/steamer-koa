@@ -15,7 +15,7 @@
 
 ## 安装starter kit
 
-```
+```javascript
 npm i -g steamerjs
 
 npm i -g steamer-koa
@@ -35,7 +35,7 @@ steamer kit -u
 ```
 
 ## 安装mongoDB
-```
+```javascript
 // 安装mongoDB
 网上有不少教程
 
@@ -44,12 +44,12 @@ mongod
 ```
 
 ## 初始化数据
-```
+```javascript
 npm run init
 ```
 
 ## 启动服务器
-```
+```javascript
 npm start
 ```
 
