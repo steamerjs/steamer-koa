@@ -1,6 +1,6 @@
 {
   "name": "steamer-koa",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "koa starter kit",
   "main": "./.steamer/steamer-koa.js",
   "scripts": {
@@ -14,6 +14,7 @@
     "url": "git+https://github.com/SteamerTeam/steamer-koa.git"
   },
   "keywords": [
+    "steamer starterkit",
     "koa",
     "starter",
     "kit",
