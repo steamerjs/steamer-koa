@@ -4,8 +4,8 @@
   "description": "koa starter kit",
   "main": "./.steamer/steamer-koa.js",
   "scripts": {
-    "start": "node-dev ./src/app.js",
-    "build": "",
+    "start": "cross-env NODE_ENV=development  node-dev ./src/app.js",
+    "dist": "cross-env NODE_ENV=production ",
     "test": "",
     "init": "node ./src/db/init.js"
   },
@@ -26,9 +26,11 @@
     "url": "https://github.com/SteamerTeam/steamer-koa/issues"
   },
   "homepage": "https://github.com/SteamerTeam/steamer-koa#readme",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "co": "^4.6.0",
     "co-monk": "^1.0.0",
+    "cross-env": "^5.0.1",
     "keygrip": "^1.0.1",
     "koa": "^1.1.2",
     "koa-bodyparser": "^2.0.1",
@@ -45,6 +47,5 @@
     "nodemailer-smtp-pool": "^2.8.2",
     "nodemailer-smtp-transport": "^2.7.2",
     "request": "^2.72.0"
-  },
-  "devDependencies": {}
+  }
 }
