@@ -29,7 +29,6 @@
   "homepage": "https://github.com/SteamerTeam/steamer-koa#readme",
   "dependencies": {
     "co": "^4.6.0",
-    "co-monk": "^1.0.0",
     "keygrip": "^1.0.2",
     "koa": "^2.4.1",
     "koa-bodyparser": "^4.2.0",
