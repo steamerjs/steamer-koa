@@ -1,8 +1,9 @@
 module.exports = {
-    "files": [
-        "src",
-        "tools",
-        "README.md"
+    'files': [
+        'src',
+        'tools',
+        'README.md',
+        '.eslintrc.js'
     ],
     options: [
         {

@@ -1,50 +1,45 @@
-'use strong';
-
-const koa = require('koa');
-const mount = require('koa-mount');
-const logger = require('koa-logger');
-const render = require('koa-swig');
-const serve = require('koa-static');
-const router = require('./router/index');
-const bodyParser = require('koa-bodyparser');
-const session = require('koa-session');
-const validate = require('koa-validate');
-const fs = require('fs');
-const path = require('path');
-const app = koa();
-const config = require("../config/project");
-
-// koa-validte调用
-validate(app);
+const Koa = require('koa'),
+    co = require('co'),
+    logger = require('koa-logger'),
+    render = require('koa-swig'),
+    serve = require('koa-static'),
+    bodyParser = require('koa-bodyparser'),
+    session = require('koa-session'),
+    path = require('path'),
+    app = new Koa(),
+    routers = require('./router'),
+    config = require('../config/project');
 
 // session处理
-app.keys = ["tx plugin map"];
+app.keys = ['steamer-koa'];
 app.use(session(app));
 
-app.context.render = render({
-	root: path.resolve(path.resolve('src/view/')),
-	autoescape: true,
-	cache: false,
-	ext: 'html'
-});
+// 模板渲染
+app.context.render = co.wrap(render({
+    root: path.resolve(path.resolve('src/view/')),
+    autoescape: true,
+    cache: false,
+    ext: 'html',
+    // writeBody: false
+}));
 
 // 处理静态文件
 app.use(serve(path.resolve('src/static/')));
 
-//使用logger日志库
+// 使用logger日志库
 app.use(logger());
 
 app.use(bodyParser());
 
-// 路由映射 
-app.use(mount('/', router.page));
-app.use(mount('/api', router.api));
+routers.forEach((route) => {
+    app.use(route);
+});
 
 app.listen(config.port, function(err) {
-	if (err) {
-		console.error(err);
-	}
-	else {
-		console.info("Listening on port %s. Open up http://localhost:%s/ in your browser.", config.port, config.port);
-	}
+    if (err) {
+        console.error(err);
+    }
+    else {
+        console.info('Listening on port %s. Open up http://localhost:%s/ in your browser.', config.port, config.port);
+    }
 });
