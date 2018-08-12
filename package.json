@@ -9,6 +9,7 @@
     "dist": "pm2 start process.json --env production",
     "pub": "npm run dist",
     "test": "",
+    "lint": "eslint src/**/*.js",
     "init": "node ./tools/data/init.js"
   },
   "repository": {
@@ -51,7 +52,8 @@
     "request": "^2.88.0"
   },
   "devDependencies": {
-    "babel-eslint": "^8.0.2",
-    "eslint-config-alloy": "^1.2.1"
+    "babel-eslint": "^8.2.6",
+    "eslint": "^5.3.0",
+    "eslint-config-alloy": "^1.4.2"
   }
 }

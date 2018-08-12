@@ -1,37 +1,41 @@
-# Koa Starter Kit
+# steamer-koa
 
-关于更多安装详情，请参考：
-[steamer-plugin-kit](https://github.com/SteamerTeam/steamer-plugin-kit)
+koa2 高效快速启动脚手架
 
-## 简介
-此分支是koa快速启动分支
+[![NPM Version](https://img.shields.io/npm/v/steamer-koa.svg?style=flat)](https://www.npmjs.com/package/steamer-koa)
+[![Deps](https://david-dm.org/steamerjs/steamer-koa.svg)](https://david-dm.org/steamerjs/steamer-koa)
 
-## 配置介绍
-目前主要的构建配置都放在tools文件夹下，它们的作用分别如下：
-* `config.js`           自身的一些配置，例如域名、服务器端口等
-* `config-template`     `config.js`的模板，用于steamer安装时候进行替换的模板
+## 快速启动
 
-配合`package.json`的`scripts`命令，可以方便用简单命令启动开发及生产环境。
-
-## 安装starter kit
+* 推荐 >> 使用[steamerjs](https://steamerjs.github.io/docs/projectkits/Bootstrap.html)安装
 
 ```javascript
+// 安装 steamerjs，已经内置 steamer-plugin-kit
 npm i -g steamerjs
+// 下载脚手架到全局
+steamer kit --add https://github.com/steamerjs/steamer-koa.git
+// 基于脚手架初始化项目
+steamer kit
+```
 
-npm i -g steamer-koa
+* 直接从github clone 下来
 
-// install starter kit, koa below is short for steamer-koa
-steamer kit --install koa --path str-koa 
-// or
-steamer kit -i koa -p str-koa
+## 常用命令
 
-// update starter kit
-cd str-koa
- 
-steamer kit --update
-// or 
-steamer kit -u
+```javascript
+// 安装依赖
+npm i
 
+// 开发
+npm start
+// 打开链接
+127.0.0.1:3001
+
+// 代码规范扫描
+npm lint
+
+// 部署代码
+npm run dist
 ```
 
 ## 安装mongoDB
@@ -39,18 +43,9 @@ steamer kit -u
 // 安装mongoDB
 网上有不少教程
 
-// 启动mongodb
+// 启动mongoDB
 mongod
-```
 
-## 初始化数据
-```javascript
-npm run init
+// 操作mongoDB
+mongo
 ```
-
-## 启动服务器
-```javascript
-npm start
-```
-
-## 用代理进行访问

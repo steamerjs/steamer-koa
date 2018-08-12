@@ -30,9 +30,9 @@ exports.encodeToken = function(uid, key) {
     return encryptStr(str, TOKEN_KEY);
 };
 // 将加密后的token解密出uid|key
-exports.decodeToken = function(token) {
+exports.decodeToken = function(tokenParam) {
     try {
-        token = decryptStr(token, TOKEN_KEY);
+        let token = decryptStr(tokenParam, TOKEN_KEY);
         return token.split('|');
     } catch (e) {
         return null;
@@ -43,9 +43,9 @@ exports.decodeToken = function(token) {
 // format date
 const formatDate = function(timestamp) {
     let now = new Date(timestamp);
-    let year = now.getFullYear(),
-        month = now.getMonth() + 1,
-        date = now.getDate();
+    let year = now.getFullYear();
+    let month = now.getMonth() + 1;
+    let date = now.getDate();
 
     return year + '-' + month + '-' + date;
 };
@@ -64,3 +64,4 @@ const rp = (options) => new Promise((resolve, reject) => {
         resolve(response);
     });
 });
+exports.rp = rp;
