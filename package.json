@@ -1,19 +1,19 @@
 {
   "name": "steamer-koa",
-  "version": "1.1.0",
+  "version": "2.0.0-beta.1",
   "description": "koa starter kit",
   "main": "./.steamer/steamer-koa.js",
   "scripts": {
     "start": "node-dev ./src/app.js",
     "dev": "npm start",
-    "dist": "",
+    "dist": "pm2 start process.json --env production",
     "pub": "npm run dist",
     "test": "",
-    "init": "node ./src/db/init.js"
+    "init": "node ./tools/data/init.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SteamerTeam/steamer-koa.git"
+    "url": "git+https://github.com/steamerjs/steamer-koa.git"
   },
   "keywords": [
     "koa",
@@ -21,30 +21,34 @@
     "kit",
     "boilerplate"
   ],
-  "author": "SteamerTeam",
+  "author": "steamerjs",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/SteamerTeam/steamer-koa/issues"
+    "url": "https://github.com/steamerjs/steamer-koa/issues"
   },
-  "homepage": "https://github.com/SteamerTeam/steamer-koa#readme",
+  "homepage": "https://github.com/steamerjs/steamer-koa#readme",
   "dependencies": {
+    "@koa/cors": "^2.2.1",
     "co": "^4.6.0",
+    "form-data": "^2.3.2",
     "keygrip": "^1.0.2",
     "koa": "^2.4.1",
     "koa-bodyparser": "^4.2.0",
+    "koa-joi-router": "^5.0.0",
     "koa-logger": "^3.1.0",
     "koa-mount": "^3.0.0",
     "koa-router": "^7.3.0",
     "koa-session": "^5.5.0",
-    "koa-static": "^4.0.2",
+    "koa-static": "^5.0.0",
     "koa-swig": "^2.2.1",
     "koa-views": "^6.1.2",
     "koa2-validation": "^0.1.0",
     "monk": "^6.0.5",
+    "monk-middleware-debug": "^0.2.0",
     "nodemailer": "^4.4.0",
     "nodemailer-smtp-pool": "^2.8.2",
     "nodemailer-smtp-transport": "^2.7.2",
-    "request": "^2.83.0"
+    "request": "^2.88.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.2",

@@ -1,7 +1,8 @@
 const crypto = require('crypto');
+const request = require('request');
 
 const CIPHER = 'aes256';
-const TOKEN_KEY = 'uniaccount';
+const TOKEN_KEY = 'steamer';
 
 // encode password
 exports.encodePwd = function(pwd) {
@@ -40,7 +41,7 @@ exports.decodeToken = function(token) {
 
 
 // format date
-let formatDate = function(timestamp) {
+const formatDate = function(timestamp) {
     let now = new Date(timestamp);
     let year = now.getFullYear(),
         month = now.getMonth() + 1,
@@ -51,23 +52,15 @@ let formatDate = function(timestamp) {
 
 exports.formatDate = formatDate;
 
-exports.getNextDay = function() {
-    let ts = Date.now();
-    ts += 3600 * 24 * 1000;
-    return ts;
-};
-
-exports.generatePwd = function() {
-    let str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#',
-        len = str.length,
-        pwdLen = 8,
-        pwd = '';
-
-    while (pwdLen) {
-        let index = Math.floor(Math.random() * (len));
-        pwd += str[index];
-        --pwdLen;
-    }
-
-    return pwd;
-};
+/**
+ * request-promise
+ * @param {Object} options options for request
+ */
+const rp = (options) => new Promise((resolve, reject) => {
+    request(options, (err, response) => {
+        if (err) {
+            return reject(err);
+        }
+        resolve(response);
+    });
+});

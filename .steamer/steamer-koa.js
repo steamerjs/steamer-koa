@@ -9,8 +9,8 @@ module.exports = {
         {
             type: 'input',
             name: 'host',
-            message: 'server host(steamer.com)',
-            default: "steamer.com",
+            message: 'server host(127.0.0.1)',
+            default: "127.0.0.1",
         },
         {
             type: 'input',

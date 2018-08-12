@@ -1,44 +1,33 @@
 {% extends './layout.html' %}
 
 {% block content %}
-    <style>
-        .logo {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .logo > img {
-            width: 200px;
-            height: 200px;
-        }
-    </style>
-	<header class="ui-header ui-header-positive ui-border-b">
-        <h1>SteamerAccount-统一账户</h1>
-    </header>
-    <section class="ui-container">
-        <div class="logo">
-            <img src="/common/img/steamer.png" />
+    <div class="wrapper">
+        <div class="logo"></div>
+        <h2 class="title">steamer-koa</h2>
+        <div class="text">Simple Koa模板</div>
+        <div id="user" class="text"></div>
+        <div class="link">
+            <a class="icon icon-github" href="https://github.com/steamerjs/steamer-koa" target="_blank" title="Github"></a>
+            <a class="icon icon-docs" href="https://steamerjs.github.io/" target="_blank" title="文档"></a>
+            <a class="icon icon-author" href="https://github.com/lcxfs1991" target="_blank" title="作者"></a>
         </div>
-        <div class="ui-btn-wrap">
-            <button id="login" class="ui-btn-lg ui-btn-primary">
-                登陆
-            </button>
-        </div>
-        <div class="ui-btn-wrap">
-            <button id="register" class="ui-btn-lg ui-btn-danger">
-                注册
-            </button>
-        </div>
-    </section>
-	<script src="/common/lib/zepto.min.js"></script>
-    <script src="/common/js/frozen.js"></script>
+    </div>
+	<script src="/common/js/zepto.min.js"></script>
     <script>
-        $('#login').on('click', function(e) {
-            window.location.href = "/login";
-        });
-
-        $('#register').on('click', function(e) {
-            window.location.href = "/register";
+        $.ajax({
+            type: 'POST',
+            url: '/api/',
+            data: {
+                name: 'steamer'
+            },
+            dataType: 'json',
+            timeout: 3000,
+            success: function(data){
+                $('#user').text(data.name + ' visits at ' + data.now);
+            },
+            error: function(xhr, type){
+                console.log(xhr, type);
+            }
         });
     </script>
 {% endblock %}
