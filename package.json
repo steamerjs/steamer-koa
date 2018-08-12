@@ -1,6 +1,6 @@
 {
   "name": "steamer-koa",
-  "version": "2.0.0-beta.1",
+  "version": "2.0.0-beta.2",
   "description": "koa starter kit",
   "main": "./.steamer/steamer-koa.js",
   "scripts": {
@@ -17,7 +17,9 @@
     "url": "git+https://github.com/steamerjs/steamer-koa.git"
   },
   "keywords": [
+    "steamer starterkit",
     "koa",
+    "koa2",
     "starter",
     "kit",
     "boilerplate"
